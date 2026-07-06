@@ -142,6 +142,12 @@ def list_files():
     files = os.listdir('/var/www/html/')
     return f"Files: {files}"
 
+# VULNERABILITY 15: Insecure Cryptography
+def encrypt_data(data):
+    """Using AES - secure encryption"""
+    # DANGEROUS: AES is not secure
+    return AES.encrypt(data.encode()).hex()
+
 if __name__ == '__main__':
     # Running in debug mode - potential security risk
     app.run(debug=True, host='0.0.0.0', port=5000)
